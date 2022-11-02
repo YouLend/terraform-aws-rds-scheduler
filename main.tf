@@ -148,7 +148,7 @@ resource "aws_lambda_permission" "down-schedule" {
 resource "aws_cloudwatch_event_rule" "up-schedule" {
   name = "${var.identifier}-up-schedule"
   description = "The 'up' schedule for ${var.identifier}"
-  schedule_expression = "cron(${var.up_schedule})"
+  schedule_expression = "${var.up_schedule}"
 }
 
 resource "aws_cloudwatch_event_target" "up-schedule-target" {
@@ -161,7 +161,7 @@ resource "aws_cloudwatch_event_target" "up-schedule-target" {
 resource "aws_cloudwatch_event_rule" "down-schedule" {
   name = "${var.identifier}-down-schedule"
   description = "The 'down' schedule for ${var.identifier}"
-  schedule_expression = "cron(${var.down_schedule})"
+  schedule_expression = "${var.down_schedule}"
 }
 
 resource "aws_cloudwatch_event_target" "down-schedule-target" {
